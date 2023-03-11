@@ -43,6 +43,7 @@ export default function Cards() {
       <div className="private">
         <h1>Dashboard</h1>
         {/* <Sample /> */}
+        pushkar
         <button onClick={logOut}>Log out</button>
       </div>
       <ToastContainer />
