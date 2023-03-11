@@ -9,15 +9,21 @@ import PropTypes from "prop-types";
 
 export function StatisticsCard({ color, icon, title, value, footer }) {
   return (
-    <Card>
+    <Card
+      className=""
+      style={{
+        background:
+          "radial-gradient(farthest-corner at 100px 100px, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+      }}
+    >
       <CardHeader
         variant="gradient"
         color={color}
-        className="absolute -mt-4 grid h-16 w-16 place-items-center"
+        className="absolute -mt-4 grid h-16 w-16 place-items-center "
       >
         {icon}
       </CardHeader>
-      <CardBody className="p-4 text-right">
+      <CardBody className="rounded-lg  p-4 text-right">
         <Typography variant="small" className="font-normal text-blue-gray-600">
           {title}
         </Typography>
@@ -26,7 +32,13 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
         </Typography>
       </CardBody>
       {footer && (
-        <CardFooter className="border-t border-blue-gray-50 p-4">
+        <CardFooter
+          className="rounded-lg border-t border-blue-gray-50  p-4"
+          style={{
+            background:
+              "radial-gradient(farthest-corner at 100px 100px, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+          }}
+        >
           {footer}
         </CardFooter>
       )}
