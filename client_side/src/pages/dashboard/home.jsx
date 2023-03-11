@@ -30,7 +30,7 @@ import {
 
 export function Home() {
   return (
-    <div className="mt-12">
+    <div className="mt-12 ">
       <div className="mb-12 grid gap-y-10 gap-x-6 md:grid-cols-2 xl:grid-cols-4">
         {statisticsCardsData.map(({ icon, title, footer, ...rest }) => (
           <StatisticsCard
@@ -41,7 +41,7 @@ export function Home() {
               className: "w-6 h-6 text-white",
             })}
             footer={
-              <Typography className="font-normal text-blue-gray-600">
+              <Typography className="font-normal text-black">
                 <strong className={footer.color}>{footer.value}</strong>
                 &nbsp;{footer.label}
               </Typography>
@@ -67,7 +67,13 @@ export function Home() {
         ))}
       </div>
       <div className="mb-4 grid grid-cols-1 gap-6 xl:grid-cols-3">
-        <Card className="overflow-hidden xl:col-span-2">
+        <Card
+          className="overflow-hidden xl:col-span-2"
+          style={{
+            background:
+              "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+          }}
+        >
           <CardHeader
             floated={false}
             shadow={false}
@@ -103,7 +109,13 @@ export function Home() {
               </MenuList>
             </Menu>
           </CardHeader>
-          <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
+          <CardBody
+            className="overflow-x-scroll px-0 pt-0 pb-2"
+            style={{
+              background:
+                "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+            }}
+          >
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
@@ -194,7 +206,12 @@ export function Home() {
             </table>
           </CardBody>
         </Card>
-        <Card>
+        <Card
+          style={{
+            background:
+              "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+          }}
+        >
           <CardHeader
             floated={false}
             shadow={false}
@@ -215,7 +232,13 @@ export function Home() {
               <strong>24%</strong> this month
             </Typography>
           </CardHeader>
-          <CardBody className="pt-0">
+          <CardBody
+            className="pt-0"
+            style={{
+              background:
+                "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+            }}
+          >
             {ordersOverviewData.map(
               ({ icon, color, title, description }, key) => (
                 <div key={title} className="flex items-start gap-4 py-3">

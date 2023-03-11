@@ -13,7 +13,7 @@ export function Sidenav({ brandImg, brandName, routes }) {
   const [controller, dispatch] = useMaterialTailwindController();
   const { sidenavColor, sidenavType, openSidenav } = controller;
   const sidenavTypes = {
-    dark: "bg-gradient-to-br from-blue-gray-800 to-blue-gray-900",
+    dark: "bg-green",
     white: "bg-white shadow-lg",
     transparent: "bg-transparent",
   };
@@ -29,7 +29,10 @@ export function Sidenav({ brandImg, brandName, routes }) {
           sidenavType === "dark" ? "border-white/20" : "border-blue-gray-50"
         }`}
       >
-        <Link to="/dashboard/home" className="flex items-center gap-4 py-6 px-8">
+        <Link
+          to="/dashboard/home"
+          className="flex items-center gap-4 py-6 px-8"
+        >
           <Avatar src={brandImg} size="sm" />
           <Typography
             variant="h6"

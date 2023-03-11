@@ -3,22 +3,22 @@ import { Avatar, Typography } from "@material-tailwind/react";
 
 export function MessageCard({ img, name, message, action }) {
   return (
-    <div className="flex items-center justify-between gap-4">
+    <div className="flex items-center justify-between gap-4 rounded-lg bg-black">
       <div className="flex items-center gap-4">
         <Avatar
           src={img}
           alt={name}
-          className="shadow-lg shadow-blue-gray-500/25"
+          className="shadow-lg shadow-blue-gray-500/25 "
         />
         <div>
           <Typography
             variant="small"
             color="blue-gray"
-            className="mb-1 font-semibold"
+            className="mb-1 font-semibold text-[#ffffff]"
           >
             {name}
           </Typography>
-          <Typography className="text-xs font-normal text-blue-gray-400">
+          <Typography className="text-xs font-normal text-[#fbfcf6]">
             {message}
           </Typography>
         </div>

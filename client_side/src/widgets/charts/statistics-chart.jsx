@@ -10,11 +10,23 @@ import Chart from "react-apexcharts";
 
 export function StatisticsChart({ color, chart, title, description, footer }) {
   return (
-    <Card>
+    <Card
+      className=""
+      style={{
+        background:
+          "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+      }}
+    >
       <CardHeader variant="gradient" color={color}>
         <Chart {...chart} />
       </CardHeader>
-      <CardBody className="p-6">
+      <CardBody
+        className="p-6"
+        style={{
+          background:
+            "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+        }}
+      >
         <Typography variant="h6" color="blue-gray">
           {title}
         </Typography>

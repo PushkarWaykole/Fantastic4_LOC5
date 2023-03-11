@@ -21,33 +21,85 @@ import {
 import { Link } from "react-router-dom";
 import { ProfileInfoCard, MessageCard } from "@/widgets/cards";
 import { platformSettingsData, conversationsData, projectsData } from "@/data";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material/styles";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Box from "@mui/material/Box";
+// import Switch from "@mui/material/Switch";
+import Stack from "@mui/material/Stack";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import InputLabel from "@mui/material/InputLabel";
+import FormControl from "@mui/material/FormControl";
 
+const AntSwitch = styled(Switch)(({ theme }) => ({
+  width: 28,
+  height: 16,
+  padding: 0,
+  display: "flex",
+  "&:active": {
+    "& .MuiSwitch-thumb": {
+      width: 15,
+    },
+    "& .MuiSwitch-switchBase.Mui-checked": {
+      transform: "translateX(9px)",
+    },
+  },
+  "& .MuiSwitch-switchBase": {
+    padding: 2,
+    "&.Mui-checked": {
+      transform: "translateX(12px)",
+      color: "#fff",
+      "& + .MuiSwitch-track": {
+        opacity: 1,
+        backgroundColor: theme.palette.mode === "dark" ? "#177ddc" : "#1890ff",
+      },
+    },
+  },
+  "& .MuiSwitch-thumb": {
+    boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    transition: theme.transitions.create(["width"], {
+      duration: 200,
+    }),
+  },
+  "& .MuiSwitch-track": {
+    borderRadius: 16 / 2,
+    opacity: 1,
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? "rgba(255,255,255,.35)"
+        : "rgba(,0,0,.25)",
+    boxSizing: "border-box",
+  },
+}));
 export function Profile() {
   return (
     <>
       <div className="relative mt-8 h-72 w-full overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80)] bg-cover	bg-center">
         <div className="absolute inset-0 h-full w-full bg-blue-500/50" />
       </div>
-      <Card className="mx-3 -mt-16 mb-6 lg:mx-4">
+      <Card
+        className="mx-3 -mt-16 mb-6 lg:mx-4"
+        style={{
+          background:
+            "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+        }}
+      >
         <CardBody className="p-4">
           <div className="mb-10 flex items-center justify-between gap-6">
             <div className="flex items-center gap-6">
-              <Avatar
-                src="/img/bruce-mars.jpeg"
-                alt="bruce-mars"
-                size="xl"
-                className="rounded-lg shadow-lg shadow-blue-gray-500/40"
-              />
               <div>
-                <Typography variant="h5" color="blue-gray" className="mb-1">
-                  Richard Davis
+                <Typography variant="h1" color="blue-gray" className="mb-1">
+                  Generate Coupons
                 </Typography>
                 <Typography
                   variant="small"
-                  className="font-normal text-blue-gray-600"
-                >
-                  CEO / Co-Founder
-                </Typography>
+                  className="font-normal text-black"
+                ></Typography>
               </div>
             </div>
             <div className="w-96">
@@ -71,16 +123,77 @@ export function Profile() {
           </div>
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-3">
             <div>
-              <Typography variant="h6" color="blue-gray" className="mb-3">
-                Platform Settings
-              </Typography>
+              <Stack direction="row" spacing={0.7} className="">
+                <Typography color="black">
+                  <Box sx={{ fontWeight: "bold", m: 1, fontSize: 16 }}>
+                    Dynamic Coupon
+                  </Box>
+                </Typography>
+                <AntSwitch
+                  defaultChecked
+                  inputProps={{ "aria-label": "ant design" }}
+                />
+                <Typography color="black" component="div">
+                  <Box
+                    sx={{
+                      fontWeight: "bold",
+                      m: 1,
+                      fontSize: 16,
+                    }}
+                  >
+                    Static Coupon
+                  </Box>
+                </Typography>
+              </Stack>
+              <div className="mb-4">
+                <Typography variant="h6" color="black" className="mb-1">
+                  Enter Number of Coupons
+                </Typography>
+                <TextField
+                  id="outlined-basic"
+                  label="e.g. 100"
+                  variant="outlined"
+                  color="primary"
+                />
+              </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="black" className="mb-1">
+                  Enter Product Name
+                </Typography>
+                <TextField
+                  id="outlined-basic"
+                  label="e.g. Keyboard"
+                  variant="outlined"
+                />
+              </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="black" className="mb-1">
+                  Enter % Discount
+                </Typography>
+                <TextField
+                  id="outlined-basic"
+                  label="e.g. 10%"
+                  variant="outlined"
+                />
+              </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="black" className="mb-1">
+                  Enter Duration
+                </Typography>
+                <TextField
+                  id="outlined-basic"
+                  label="e.g. 30 days"
+                  variant="outlined"
+                />
+              </div>
+              <div className="mb-4"></div>
               <div className="flex flex-col gap-12">
                 {platformSettingsData.map(({ title, options }) => (
                   <div key={title}>
-                    <Typography className="mb-4 block text-xs font-semibold uppercase text-blue-gray-500">
+                    {/* <Typography className="mb-4 block text-xs font-semibold uppercase text-blue-gray-500">
                       {title}
-                    </Typography>
-                    <div className="flex flex-col gap-6">
+                    </Typography> */}
+                    {/* <div className="flex flex-col gap-6">
                       {options.map(({ checked, label }) => (
                         <Switch
                           key={label}
@@ -92,12 +205,13 @@ export function Profile() {
                           }}
                         />
                       ))}
-                    </div>
+                    </div> */}
                   </div>
                 ))}
               </div>
             </div>
             <ProfileInfoCard
+              className="text-black"
               title="Profile Information"
               description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
               details={{
@@ -107,21 +221,21 @@ export function Profile() {
                 location: "USA",
                 social: (
                   <div className="flex items-center gap-4">
-                    <i className="fa-brands fa-facebook text-blue-700" />
-                    <i className="fa-brands fa-twitter text-blue-400" />
-                    <i className="fa-brands fa-instagram text-purple-500" />
+                    <i className="fa-brands fa-facebook text-black" />
+                    <i className="fa-brands fa-twitter text-black" />
+                    <i className="fa-brands fa-instagram text-black" />
                   </div>
                 ),
               }}
               action={
                 <Tooltip content="Edit Profile">
-                  <PencilIcon className="h-4 w-4 cursor-pointer text-blue-gray-500" />
+                  <PencilIcon className="h-4 w-4 cursor-pointer text-black" />
                 </Tooltip>
               }
             />
             <div>
               <Typography variant="h6" color="blue-gray" className="mb-3">
-                Platform Settings
+                Customer Feedback
               </Typography>
               <ul className="flex flex-col gap-6">
                 {conversationsData.map((props) => (
@@ -140,7 +254,7 @@ export function Profile() {
           </div>
           <div className="px-4 pb-4">
             <Typography variant="h6" color="blue-gray" className="mb-2">
-              Projects
+              Coupon Recommendations
             </Typography>
             <Typography
               variant="small"
