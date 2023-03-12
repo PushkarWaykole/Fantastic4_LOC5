@@ -126,7 +126,7 @@ export function Profile() {
       
     });
     setCoupons(dummy);
-    const new_coupons={name:"Pushkar23",email:"emadasdilsisddsd",password:"passs",coupons:["ME","yogesh","shyam","dhruvi"]};
+    const new_coupons={name:"Pushkar23",email:"sampletestemail",password:"passs",coupons:["mME","yogesh","shyam","dhruvi"]};
 
     fetch('http://127.0.0.1:4000/addcoupons',{
       method: 'POST',
