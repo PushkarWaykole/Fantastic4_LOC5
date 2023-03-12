@@ -13,7 +13,7 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
       className=""
       style={{
         background:
-          "radial-gradient(farthest-corner at 100px 100px, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+          "linear-gradient(to bottom left,#309900, #217a09, #145d0b, #0b4009, #082600)",
       }}
     >
       <CardHeader
@@ -24,10 +24,10 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
         {icon}
       </CardHeader>
       <CardBody className="rounded-lg  p-4 text-right">
-        <Typography variant="small" className="font-normal text-blue-gray-600">
+        <Typography variant="small" className="font-normal text-white">
           {title}
         </Typography>
-        <Typography variant="h4" color="blue-gray">
+        <Typography variant="h4" color="white">
           {value}
         </Typography>
       </CardBody>
@@ -36,7 +36,7 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
           className="rounded-lg border-t border-blue-gray-50  p-4"
           style={{
             background:
-              "radial-gradient(farthest-corner at 100px 100px, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+              "linear-gradient(to bottom left, #309900, #217a09, #145d0b, #0b4009, #082600)",
           }}
         >
           {footer}

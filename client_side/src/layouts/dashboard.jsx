@@ -18,7 +18,7 @@ export function Dashboard() {
     <div
       className="min-h-screen"
       style={{
-        background: "black",
+        background: "#171717",
       }}
     >
       <Sidenav
@@ -48,7 +48,7 @@ export function Dashboard() {
               ))
           )}
         </Routes>
-        <div className="text-blue-gray-600">
+        <div className="text-white">
           <Footer />
         </div>
       </div>

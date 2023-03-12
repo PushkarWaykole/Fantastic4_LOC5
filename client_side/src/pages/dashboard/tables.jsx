@@ -14,24 +14,29 @@ import { authorsTableData, projectsTableData } from "@/data";
 export function Tables() {
   return (
     <div className="mt-12 mb-8 flex flex-col gap-12">
-      <Card>
-        <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
-          <Typography variant="h6" color="white">
-            Authors Table
+      <Card
+        style={{
+          background:
+            "linear-gradient(to bottom left,#309900, #217a09, #145d0b, #0b4009, #082600)",
+        }}
+      >
+        <CardHeader variant="gradient" color="white" className="mb-8 p-6">
+          <Typography variant="h6" color="black">
+            Recent Coupouns
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["author", "function", "status", "employed", ""].map((el) => (
+                {["User", "Product", "status", "employed", ""].map((el) => (
                   <th
                     key={el}
-                    className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                    className="border-b border-blue-gray-50 py-3 px-5 text-left text-white"
                   >
                     <Typography
                       variant="small"
-                      className="text-[11px] font-bold uppercase text-blue-gray-400"
+                      className="text-[11px] font-bold uppercase text-white"
                     >
                       {el}
                     </Typography>
@@ -41,7 +46,7 @@ export function Tables() {
             </thead>
             <tbody>
               {authorsTableData.map(
-                ({ img, name, email, job, online, date }, key) => {
+                ({ img, name, email, job, successful, date }, key) => {
                   const className = `py-3 px-5 ${
                     key === authorsTableData.length - 1
                       ? ""
@@ -56,35 +61,35 @@ export function Tables() {
                           <div>
                             <Typography
                               variant="small"
-                              color="blue-gray"
+                              color="white"
                               className="font-semibold"
                             >
                               {name}
                             </Typography>
-                            <Typography className="text-xs font-normal text-blue-gray-500">
+                            <Typography className="text-xs font-normal text-white">
                               {email}
                             </Typography>
                           </div>
                         </div>
                       </td>
                       <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
+                        <Typography className="text-s font-bold text-white">
                           {job[0]}
                         </Typography>
-                        <Typography className="text-xs font-normal text-blue-gray-500">
+                        <Typography className="text-xs font-normal text-white">
                           {job[1]}
                         </Typography>
                       </td>
                       <td className={className}>
                         <Chip
                           variant="gradient"
-                          color={online ? "green" : "blue-gray"}
-                          value={online ? "online" : "offline"}
+                          color={successful ? "green" : "blue-gray"}
+                          value={successful ? "successful" : "unsuccessful"}
                           className="py-0.5 px-2 text-[11px] font-medium"
                         />
                       </td>
                       <td className={className}>
-                        <Typography className="text-xs font-semibold text-blue-gray-600">
+                        <Typography className="text-xs font-semibold text-white">
                           {date}
                         </Typography>
                       </td>
@@ -92,7 +97,7 @@ export function Tables() {
                         <Typography
                           as="a"
                           href="#"
-                          className="text-xs font-semibold text-blue-gray-600"
+                          className="text-xs font-semibold text-white"
                         >
                           Edit
                         </Typography>
@@ -105,36 +110,39 @@ export function Tables() {
           </table>
         </CardBody>
       </Card>
-      <Card>
-        <CardHeader variant="gradient" color="blue" className="mb-8 p-6">
+      <Card
+        style={{
+          background:
+            "linear-gradient(to bottom left,#309900, #217a09, #145d0b, #0b4009, #082600)",
+        }}
+      >
+        <CardHeader variant="gradient" color="white " className="mb-8 p-6">
           <Typography variant="h6" color="white">
-            Projects Table
+            Products
           </Typography>
         </CardHeader>
         <CardBody className="overflow-x-scroll px-0 pt-0 pb-2">
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["companies", "members", "budget", "completion", ""].map(
-                  (el) => (
-                    <th
-                      key={el}
-                      className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                {["companies", "user", "budget", "completion", ""].map((el) => (
+                  <th
+                    key={el}
+                    className="border-b border-blue-gray-50 py-3 px-5 text-left"
+                  >
+                    <Typography
+                      variant="small"
+                      className="text-[11px] font-bold uppercase text-white"
                     >
-                      <Typography
-                        variant="small"
-                        className="text-[11px] font-bold uppercase text-blue-gray-400"
-                      >
-                        {el}
-                      </Typography>
-                    </th>
-                  )
-                )}
+                      {el}
+                    </Typography>
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
               {projectsTableData.map(
-                ({ img, name, members, budget, completion }, key) => {
+                ({ img, name, user, budget, completion }, key) => {
                   const className = `py-3 px-5 ${
                     key === projectsTableData.length - 1
                       ? ""
@@ -148,7 +156,7 @@ export function Tables() {
                           <Avatar src={img} alt={name} size="sm" />
                           <Typography
                             variant="small"
-                            color="blue-gray"
+                            color="white"
                             className="font-bold"
                           >
                             {name}
@@ -156,7 +164,7 @@ export function Tables() {
                         </div>
                       </td>
                       <td className={className}>
-                        {members.map(({ img, name }, key) => (
+                        {user.map(({ img, name }, key) => (
                           <Tooltip key={name} content={name}>
                             <Avatar
                               src={img}
@@ -173,7 +181,7 @@ export function Tables() {
                       <td className={className}>
                         <Typography
                           variant="small"
-                          className="text-xs font-medium text-blue-gray-600"
+                          className="text-xs font-medium text-white"
                         >
                           {budget}
                         </Typography>
@@ -182,7 +190,7 @@ export function Tables() {
                         <div className="w-10/12">
                           <Typography
                             variant="small"
-                            className="mb-1 block text-xs font-medium text-blue-gray-600"
+                            className="mb-1 block text-xs font-medium text-white"
                           >
                             {completion}%
                           </Typography>
@@ -198,7 +206,7 @@ export function Tables() {
                         <Typography
                           as="a"
                           href="#"
-                          className="text-xs font-semibold text-blue-gray-600"
+                          className="text-xs font-semibold text-white"
                         >
                           <EllipsisVerticalIcon
                             strokeWidth={2}

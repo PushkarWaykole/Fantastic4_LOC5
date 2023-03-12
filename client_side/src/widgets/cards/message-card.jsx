@@ -13,7 +13,7 @@ export function MessageCard({ img, name, message, action }) {
         <div>
           <Typography
             variant="small"
-            color="blue-gray"
+            color="white"
             className="mb-1 font-semibold text-[#ffffff]"
           >
             {name}

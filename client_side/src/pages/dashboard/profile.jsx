@@ -86,19 +86,19 @@ export function Profile() {
         className="mx-3 -mt-16 mb-6 lg:mx-4"
         style={{
           background:
-            "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+            "linear-gradient(to bottom left,#309900 24%, #217a09, #145d0b, #0b4009, #082600)",
         }}
       >
         <CardBody className="p-4">
           <div className="mb-10 flex items-center justify-between gap-6">
             <div className="flex items-center gap-6">
               <div>
-                <Typography variant="h1" color="blue-gray" className="mb-1">
+                <Typography variant="h1" color="white" className="mb-1">
                   Generate Coupons
                 </Typography>
                 <Typography
                   variant="small"
-                  className="font-normal text-black"
+                  className="font-normal text-white"
                 ></Typography>
               </div>
             </div>
@@ -124,7 +124,7 @@ export function Profile() {
           <div className="gird-cols-1 mb-12 grid gap-12 px-4 lg:grid-cols-2 xl:grid-cols-3">
             <div>
               <Stack direction="row" spacing={0.7} className="">
-                <Typography color="black">
+                <Typography color="white">
                   <Box sx={{ fontWeight: "bold", m: 1, fontSize: 16 }}>
                     Dynamic Coupon
                   </Box>
@@ -133,7 +133,7 @@ export function Profile() {
                   defaultChecked
                   inputProps={{ "aria-label": "ant design" }}
                 />
-                <Typography color="black" component="div">
+                <Typography color="white" component="div">
                   <Box
                     sx={{
                       fontWeight: "bold",
@@ -146,10 +146,11 @@ export function Profile() {
                 </Typography>
               </Stack>
               <div className="mb-4">
-                <Typography variant="h6" color="black" className="mb-1">
+                <Typography variant="h6" color="white" className="mb-1">
                   Enter Number of Coupons
                 </Typography>
                 <TextField
+                  sx={{ input: { color: "white" } }}
                   id="outlined-basic"
                   label="e.g. 100"
                   variant="outlined"
@@ -157,30 +158,33 @@ export function Profile() {
                 />
               </div>
               <div className="mb-4">
-                <Typography variant="h6" color="black" className="mb-1">
+                <Typography variant="h6" color="white" className="mb-1">
                   Enter Product Name
                 </Typography>
                 <TextField
+                  sx={{ input: { color: "white" } }}
                   id="outlined-basic"
                   label="e.g. Keyboard"
                   variant="outlined"
                 />
               </div>
               <div className="mb-4">
-                <Typography variant="h6" color="black" className="mb-1">
+                <Typography variant="h6" color="white" className="mb-1">
                   Enter % Discount
                 </Typography>
                 <TextField
+                  sx={{ input: { color: "white" } }}
                   id="outlined-basic"
                   label="e.g. 10%"
                   variant="outlined"
                 />
               </div>
               <div className="mb-4">
-                <Typography variant="h6" color="black" className="mb-1">
+                <Typography variant="h6" color="white" className="mb-1">
                   Enter Duration
                 </Typography>
                 <TextField
+                  sx={{ input: { color: "white" } }}
                   id="outlined-basic"
                   label="e.g. 30 days"
                   variant="outlined"
@@ -190,7 +194,7 @@ export function Profile() {
               <div className="flex flex-col gap-12">
                 {platformSettingsData.map(({ title, options }) => (
                   <div key={title}>
-                    {/* <Typography className="mb-4 block text-xs font-semibold uppercase text-blue-gray-500">
+                    {/* <Typography className="mb-4 block text-xs font-semibold uppercase text-white">
                       {title}
                     </Typography> */}
                     {/* <div className="flex flex-col gap-6">
@@ -201,7 +205,7 @@ export function Profile() {
                           label={label}
                           defaultChecked={checked}
                           labelProps={{
-                            className: "text-sm font-normal text-blue-gray-500",
+                            className: "text-sm font-normal text-white",
                           }}
                         />
                       ))}
@@ -211,30 +215,30 @@ export function Profile() {
               </div>
             </div>
             <ProfileInfoCard
-              className="text-black"
+              className="text-white"
               title="Profile Information"
-              description="Hi, I'm Alec Thompson, Decisions: If you can't decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality)."
+              description="CyberEon is an up-and-coming electronics manufacturer, dedicated to providing innovative and high-quality products with a focus on customer satisfaction. With over 10 years of experience in the field, we are well-equipped to offer an extensive range of cutting-edge and reliable products for both domestic and commercial use. Our commitment to quality, service and customer satisfaction has earned us a reputation as one of the leading electronics manufacturers in the industry today. We are proud to offer a wide selection of products that are designed to meet the highest standards of performance and safety. Whether you are looking for home entertainment systems, gaming consoles, or home automation solutions, CyberEon has the right product for you."
               details={{
-                "first name": "Alec M. Thompson",
+                "first name": "CyberEon",
                 mobile: "(44) 123 1234 123",
-                email: "alecthompson@mail.com",
-                location: "USA",
+                email: "CyberEon@mail.com",
+                location: "INDIA",
                 social: (
                   <div className="flex items-center gap-4">
-                    <i className="fa-brands fa-facebook text-black" />
-                    <i className="fa-brands fa-twitter text-black" />
-                    <i className="fa-brands fa-instagram text-black" />
+                    <i className="fa-brands fa-facebook text-white" />
+                    <i className="fa-brands fa-twitter text-white" />
+                    <i className="fa-brands fa-instagram text-white" />
                   </div>
                 ),
               }}
               action={
                 <Tooltip content="Edit Profile">
-                  <PencilIcon className="h-4 w-4 cursor-pointer text-black" />
+                  <PencilIcon className="h-4 w-4 cursor-pointer text-white" />
                 </Tooltip>
               }
             />
             <div>
-              <Typography variant="h6" color="blue-gray" className="mb-3">
+              <Typography variant="h6" color="white" className="mb-3">
                 Customer Feedback
               </Typography>
               <ul className="flex flex-col gap-6">
@@ -253,13 +257,10 @@ export function Profile() {
             </div>
           </div>
           <div className="px-4 pb-4">
-            <Typography variant="h6" color="blue-gray" className="mb-2">
+            <Typography variant="h6" color="white" className="mb-2">
               Coupon Recommendations
             </Typography>
-            <Typography
-              variant="small"
-              className="font-normal text-blue-gray-500"
-            >
+            <Typography variant="small" className="font-normal text-white">
               Architects design houses
             </Typography>
             <div className="mt-6 grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
@@ -280,20 +281,20 @@ export function Profile() {
                     <CardBody className="py-0 px-1">
                       <Typography
                         variant="small"
-                        className="font-normal text-blue-gray-500"
+                        className="font-normal text-white"
                       >
                         {tag}
                       </Typography>
                       <Typography
                         variant="h5"
-                        color="blue-gray"
+                        color="white"
                         className="mt-1 mb-2"
                       >
                         {title}
                       </Typography>
                       <Typography
                         variant="small"
-                        className="font-normal text-blue-gray-500"
+                        className="font-normal text-white"
                       >
                         {description}
                       </Typography>
