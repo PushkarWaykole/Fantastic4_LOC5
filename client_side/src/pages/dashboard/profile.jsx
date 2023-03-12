@@ -12,6 +12,7 @@ import {
   Tooltip,
   Button,
 } from "@material-tailwind/react";
+import { useState,useEffect } from "react";
 import {
   HomeIcon,
   ChatBubbleLeftEllipsisIcon,
@@ -32,6 +33,9 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import voucher_codes from "voucher-code-generator";
+
+
 
 const AntSwitch = styled(Switch)(({ theme }) => ({
   width: 28,
@@ -76,7 +80,63 @@ const AntSwitch = styled(Switch)(({ theme }) => ({
     boxSizing: "border-box",
   },
 }));
+
+
+
+
+
 export function Profile() {
+
+  const [users, setUsers] = useState([{"_id":"6401a6439b10b092ac2cb957","name":"jj","email":"we@gmail.com","password":"$2b$10$gMOcygY.Qp9gs.98ReC/ZuhkMH3KBcxHXCW3wAzTMbsCORn/Zt2na","__v":0},{"_id":"64022cc8aca3f5a2323550fb","name":"Pushkar","email":"rr@gmail","password":"$2b$10$Tsz0w7yqEJ3H5grq8gYAMOsSpcyFgEV3sgQzEkSkQcn6P8hEqHZwa","__v":0},{"_id":"64022cf8aca3f5a2323550fe","name":"test1","email":"hi","password":"$2b$10$Df3fUXbvgNzQ7WwmFK52SOPwFyeLryIy.EiECYyCKsX1I1Odl/Yhm","__v":0},{"_id":"64022d56aca3f5a232355101","name":"asdasd","email":"das","password":"$2b$10$AJEY8mdxFzUHVTFR.apId.nJvZHBPtbeALQGHcCTMDhZMzuGng1UO","__v":0},{"_id":"6402c248db4f33f1ec9f9ec9","name":"umang","email":"umang@gmail.com","password":"$2b$10$E/0zCiyCKnByWByTg.NI1unXF1fOJ8GbkylhXasTuYCGlLch1pQ.a","__v":0},{"_id":"640c128180664201439b9541","name":"Shyam","email":"shyam@gmail.com","password":"$2b$10$ag4gSJd1Wkab2aSBInEiP.Mg/RFeWjoiRHyOKjv.4Gu7JMU3EGTLG","__v":0},{"_id":"640caed2e9f8e92d9a6594de","name":"Pushkar","email":"ejjhsdf","password":"pls man","__v":0},{"_id":"640cb044cc88e906fe6a8858","name":"Pushksdfsfdsfdsar","email":"ejjhsddfsfsdfsf","password":"pls sdfsdfman","__v":0},{"_id":"640cb07a910ecc1391175e94","name":"Pushksdfsfdsfdsar","email":"ejjhsddfsfsassdfsf","password":"pls sdfsdfman","__v":0},{"_id":"640cb93d910ecc1391175e97","name":"Pushksdfsfdsfdsar","email":"ejjhsddfsfsassdfsdfsdsf","password":"pls sdfsdfmsdfsdan","__v":0},{"_id":"640cc803d53241c74f4f7f50","name":"hoiuopjjkb5435","email":"gtkjhe5345","password":"pls sdfsdfmsdfsdan","__v":0},{"_id":"640ccc1b4b1e515b43efd535","name":"shyam35565","email":"gtkjhe534dsf5","password":"pls sdfsdfmsdfsdan","__v":0}])
+
+  const fetchUserData = () => {
+    fetch("http://localhost:4000/getAllusers")
+      .then(response => {
+        console.log("response: "+response)
+        return response.json()
+      })
+      .then(data => {
+        console.log("data is: "+data);
+        return (data ? setUsers(data): "re")
+      })
+  }
+  
+
+  // useEffect(() => {
+  //   fetchUserData();
+  // },[])
+  // var voucher_codes = require('voucher-code-generator');
+
+  const [numberCoupons, setNumberCoupons] = useState(0)
+  const [product, setProduct] = useState("")
+  const [discount, setDiscount] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [lengthCoupons, setLengthCoupons] = useState(0)
+  const [prefix, setPrefix] = useState("")
+  const [coupons, setCoupons] = useState([])
+  const incart={
+    "incart":["bread","mousepad","salt"]
+}
+
+  const createCoupons=()=>{
+    const dummy=voucher_codes.generate({
+      prefix: prefix,
+      length: lengthCoupons,
+      count: numberCoupons,
+      
+    });
+    setCoupons(dummy);
+    const new_coupons={name:"Pushkar23",email:"emadasdilsisddsd",password:"passs",coupons:["ME","yogesh","shyam","dhruvi"]};
+
+    fetch('http://127.0.0.1:4000/addcoupons',{
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify(new_coupons)
+    }).then(()=>{
+      console.log("the new coupons generated are: "+new_coupons);
+    })
+  }
+
   return (
     <>
       <div
@@ -164,6 +224,9 @@ export function Profile() {
                   label="e.g. 100"
                   variant="outlined"
                   color="primary"
+
+                  onChange={(e)=>setNumberCoupons(e.target.value)}
+                  value={numberCoupons}
                 />
               </div>
               <div className="mb-4">
@@ -175,6 +238,8 @@ export function Profile() {
                   id="outlined-basic"
                   label="e.g. Keyboard"
                   variant="outlined"
+                  onChange={(e)=>setProduct(e.target.value)}
+                  value={product}
                 />
               </div>
               <div className="mb-4">
@@ -186,6 +251,8 @@ export function Profile() {
                   id="outlined-basic"
                   label="e.g. 10%"
                   variant="outlined"
+                  onChange={(e)=>setDiscount(e.target.value)}
+                  value={discount}
                 />
               </div>
               <div className="mb-4">
@@ -197,8 +264,43 @@ export function Profile() {
                   id="outlined-basic"
                   label="e.g. 30 days"
                   variant="outlined"
+                  onChange={(e)=>setDuration(e.target.value)}
+                  value={duration}
                 />
               </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="white" className="mb-1">
+                  Length of Coupon
+                </Typography>
+                <TextField
+                  sx={{ input: { color: "white" } }}
+                  id="outlined-basic"
+                  label="e.g. 30 days"
+                  variant="outlined"
+                  onChange={(e)=>setLengthCoupons(e.target.value)}
+                  value={lengthCoupons}
+                />
+              </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="white" className="mb-1">
+                  Prefix of coupons
+                </Typography>
+                <TextField
+                  sx={{ input: { color: "white" } }}
+                  id="outlined-basic"
+                  label="e.g. 30 days"
+                  variant="outlined"
+                  onChange={(e)=>setPrefix(e.target.value)}
+                  value={prefix}
+                />
+              </div>
+
+              <Button variant="contained" onClick={createCoupons}>Generate</Button>
+              
+
+
+       
+
               <div className="mb-4"></div>
               <div className="flex flex-col gap-12">
                 {platformSettingsData.map(({ title, options }) => (
@@ -265,6 +367,20 @@ export function Profile() {
               </ul>
             </div>
           </div>
+
+          
+          <div className="bg-white rounded-lg p-4 m-4">
+                {coupons && coupons.map((cc)=>(
+                  <div className="text-black" key={cc}>{cc}</div>
+                ))}
+
+                {/* {users.map((user)=>(
+                  <div key={user.id} className="font-bold">User name: {user.name}</div>
+                ))} */}
+          </div>
+
+
+
           <div className="px-4 pb-4">
             <Typography variant="h6" color="white" className="mb-2">
               Coupon Recommendations
