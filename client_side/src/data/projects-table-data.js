@@ -1,6 +1,6 @@
 export const projectsTableData = [
   {
-    img: "/img/logo-xd.svg",
+    img: "/img/icons8-headphones-50.png",
     name: "Earphone",
     user: [
       { img: "/img/team-1.jpeg", name: "Romina Hadid" },
@@ -12,7 +12,7 @@ export const projectsTableData = [
     completion: 60,
   },
   {
-    img: "/img/logo-atlassian.svg",
+    img: "/img/icons8-eggs-50.png",
     name: "Egg",
     user: [
       { img: "/img/team-2.jpeg", name: "Ryan Tompson" },
@@ -22,7 +22,7 @@ export const projectsTableData = [
     completion: 10,
   },
   {
-    img: "/img/logo-slack.svg",
+    img: "/img/icons8-keyboard-50.png",
     name: "keyboard",
     user: [
       { img: "/img/team-3.jpeg", name: "Jessica Doe" },
@@ -34,7 +34,7 @@ export const projectsTableData = [
     completion: 100,
   },
   {
-    img: "/img/logo-spotify.svg",
+    img: "/img/icons8-right-click-48.png",
     name: "mouse",
     user: [
       { img: "/img/team-4.jpeg", name: "Alexander Smith" },
@@ -46,14 +46,14 @@ export const projectsTableData = [
     completion: 100,
   },
   {
-    img: "/img/logo-jira.svg",
+    img: "/img/icons8-toast-50.png",
     name: "bread",
     user: [{ img: "/img/team-4.jpeg", name: "Alexander Smith" }],
     budget: "$500",
     completion: 25,
   },
   {
-    img: "/img/logo-invision.svg",
+    img: "/img/icons8-android-50.png",
     name: "mobile",
     user: [
       { img: "/img/team-1.jpeg", name: "Romina Hadid" },

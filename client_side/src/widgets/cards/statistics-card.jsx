@@ -35,8 +35,7 @@ export function StatisticsCard({ color, icon, title, value, footer }) {
         <CardFooter
           className="rounded-lg border-t border-blue-gray-50  p-4"
           style={{
-            background:
-              "linear-gradient(to bottom left, #309900, #217a09, #145d0b, #0b4009, #082600)",
+            background: "rgba(255,255,255,0.15)",
           }}
         >
           {footer}

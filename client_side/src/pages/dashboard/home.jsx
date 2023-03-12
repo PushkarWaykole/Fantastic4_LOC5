@@ -216,7 +216,7 @@ export function Home() {
             color="transparent"
             className="m-0 p-6"
           >
-            <Typography variant="h6" color="blue-gray" className="mb-2">
+            <Typography variant="h6" color="white" className="mb-2">
               Orders Overview
             </Typography>
             <Typography
@@ -254,7 +254,7 @@ export function Home() {
                   <div>
                     <Typography
                       variant="small"
-                      color="blue-gray"
+                      color="white"
                       className="block font-medium"
                     >
                       {title}

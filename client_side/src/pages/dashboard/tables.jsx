@@ -117,7 +117,7 @@ export function Tables() {
         }}
       >
         <CardHeader variant="gradient" color="white " className="mb-8 p-6">
-          <Typography variant="h6" color="white">
+          <Typography variant="h6" color="black">
             Products
           </Typography>
         </CardHeader>
