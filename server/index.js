@@ -38,4 +38,4 @@ app.use(
 app.use(cookieParser());
 
 app.use(express.json());
-app.use("/dashboard/home", authRoutes);
+app.use("", authRoutes);
