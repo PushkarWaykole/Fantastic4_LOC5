@@ -107,8 +107,36 @@ export function Profile() {
   // },[])
   // var voucher_codes = require('voucher-code-generator');
 
+  const [numberCoupons, setNumberCoupons] = useState(0)
+  const [product, setProduct] = useState("")
+  const [discount, setDiscount] = useState(0)
+  const [duration, setDuration] = useState(0)
+  const [lengthCoupons, setLengthCoupons] = useState(0)
+  const [prefix, setPrefix] = useState("")
+  const [coupons, setCoupons] = useState([])
+  const incart={
+    "incart":["bread","mousepad","salt"]
+}
 
-  fetch("http://localhost:5000/recommend",incart).then(response=>response.json()).then(data=>console.log(data))
+  const createCoupons=()=>{
+    const dummy=voucher_codes.generate({
+      prefix: prefix,
+      length: lengthCoupons,
+      count: numberCoupons,
+      
+    });
+    setCoupons(dummy);
+    const new_coupons={name:"Pushkar23",email:"emadasdilsisddsd",password:"passs",coupons:["ME","yogesh","shyam","dhruvi"]};
+
+    fetch('http://127.0.0.1:4000/addcoupons',{
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body:JSON.stringify(new_coupons)
+    }).then(()=>{
+      console.log("the new coupons generated are: "+new_coupons);
+    })
+  }
+
   return (
     <>
       <div className="relative mt-8 h-72 w-full overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1531512073830-ba890ca4eba2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80)] bg-cover	bg-center">
@@ -231,18 +259,38 @@ export function Profile() {
                   value={duration}
                 />
               </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="white" className="mb-1">
+                  Length of Coupon
+                </Typography>
+                <TextField
+                  sx={{ input: { color: "white" } }}
+                  id="outlined-basic"
+                  label="e.g. 30 days"
+                  variant="outlined"
+                  onChange={(e)=>setLengthCoupons(e.target.value)}
+                  value={lengthCoupons}
+                />
+              </div>
+              <div className="mb-4">
+                <Typography variant="h6" color="white" className="mb-1">
+                  Prefix of coupons
+                </Typography>
+                <TextField
+                  sx={{ input: { color: "white" } }}
+                  id="outlined-basic"
+                  label="e.g. 30 days"
+                  variant="outlined"
+                  onChange={(e)=>setPrefix(e.target.value)}
+                  value={prefix}
+                />
+              </div>
 
-              {/* <motion.div
-  animate={{
-    x: -3,
-    y: -100,
-    scale: 1,
-    rotate: 0,
-  }}
-/> */}
+              <Button variant="contained" onClick={createCoupons}>Generate</Button>
+              
 
 
-          <p>{numberCoupons} {product} {discount} {duration}</p>
+       
 
               <div className="mb-4"></div>
               <div className="flex flex-col gap-12">
@@ -312,12 +360,14 @@ export function Profile() {
           </div>
 
           
-          <div className="bg-white">
-                The user
-
-                {users.map((user)=>(
-                  <div key={user.id} className="font-bold">User name: {user.name}</div>
+          <div className="bg-white rounded-lg p-4 m-4">
+                {coupons && coupons.map((cc)=>(
+                  <div className="text-black" key={cc}>{cc}</div>
                 ))}
+
+                {/* {users.map((user)=>(
+                  <div key={user.id} className="font-bold">User name: {user.name}</div>
+                ))} */}
           </div>
 
 

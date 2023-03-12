@@ -50,37 +50,27 @@ app.use(cors());
 //   });
 // });
 
-app.post("/getAllusers",async(req,res)=>{
-    try{
-      const name=req.name
-        const alluser=await User.find({})
-        res.send({data:alluser});
-    }
-    catch(err){
-        console.log('err', err)
-    }
-})
+
 let MongoClient = require('mongodb').MongoClient;
 
-app.post("/adduser",async(req,res)=>{
-    try{
-        const name=req.body.name;
-        const email=req.body.email;
-        const password=req.body.password;
-        const user = await User.create({ name,email, password });
-        // res.status(201).json({ user: user._id, created: true });
-        // User.save(user);
-        await user.save();
-        console.log(name+email+" created");
-        
-        res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
-        res.send({data:user})
-    }
-    catch(err){
-        console.log(err);
-    }
+app.get("/",function(req,res){
+    res.sendFile(__dirname+"/index.html")
 })
 
+app.post("/",async function(req,res){
+        const name=req.body.name;
+      const email=req.body.email;
+      const password=req.body.password;
+      const coupons=req.body.coupons;
+      const user = await User.create({ name,email, password,coupons });
+      // res.status(201).json({ user: user._id, created: true });
+      // User.save(user);
+      await user.save();
+      console.log(name+email+" created");
+
+      res.setHeader("Access-Control-Allow-Headers", "X-Requested-With, content-type");
+      res.send({data:user})
+})
 
 app.post("/addcoupons",async(req,res)=>{
   try{
@@ -103,6 +93,6 @@ app.post("/addcoupons",async(req,res)=>{
 })
 
 
-app.listen(4000, () => {
+app.listen(7000, () => {
   console.log('Server started');
 });
