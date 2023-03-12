@@ -29,7 +29,12 @@ export function StatisticsChart({ color, chart, title, description, footer }) {
         </Typography>
       </CardBody>
       {footer && (
-        <CardFooter className="border-t border-blue-gray-50 px-6 py-5">
+        <CardFooter
+          className="rounded-lg border-t border-blue-gray-50 px-6 py-5"
+          style={{
+            background: "rgba(255,255,255,0.15)",
+          }}
+        >
           {footer}
         </CardFooter>
       )}

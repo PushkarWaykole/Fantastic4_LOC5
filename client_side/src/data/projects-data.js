@@ -1,8 +1,8 @@
 export const projectsData = [
   {
-    img: "/img/home-decor-1.jpeg",
+    img: "/img/coupons.png",
     title: "Modern",
-    tag: "Project #1",
+    tag: "Coupon #1",
     description:
       "As Uber works through a huge amount of internal management turmoil.",
     route: "/dashboard/profile",
@@ -14,9 +14,9 @@ export const projectsData = [
     ],
   },
   {
-    img: "/img/home-decor-2.jpeg",
+    img: "/img/coupons.png",
     title: "Scandinavian",
-    tag: "Project #2",
+    tag: "Coupon #2",
     description:
       "Music is something that every person has his or her own specific opinion about.",
     route: "/dashboard/profile",
@@ -28,9 +28,9 @@ export const projectsData = [
     ],
   },
   {
-    img: "/img/home-decor-3.jpeg",
+    img: "/img/coupons.png",
     title: "Minimalist",
-    tag: "Project #3",
+    tag: "Coupon #3",
     description:
       "Different people have different taste, and various types of music.",
     route: "/dashboard/profile",
@@ -42,9 +42,9 @@ export const projectsData = [
     ],
   },
   {
-    img: "/img/home-decor-4.jpeg",
+    img: "/img/coupons.png",
     title: "Gothic",
-    tag: "Project #4",
+    tag: "Coupon #4",
     description:
       "Why would anyone pick blue over pink? Pink is obviously a better color.",
     route: "/dashboard/profile",
