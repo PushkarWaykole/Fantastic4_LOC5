@@ -14,23 +14,17 @@ export function StatisticsChart({ color, chart, title, description, footer }) {
       className=""
       style={{
         background:
-          "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+          "linear-gradient(to bottom left,#309900 13%, #217a09, #145d0b, #0b4009, #082600)",
       }}
     >
       <CardHeader variant="gradient" color={color}>
         <Chart {...chart} />
       </CardHeader>
-      <CardBody
-        className="p-6"
-        style={{
-          background:
-            "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
-        }}
-      >
-        <Typography variant="h6" color="blue-gray">
+      <CardBody className="p-6">
+        <Typography variant="h6" color="white">
           {title}
         </Typography>
-        <Typography variant="small" className="font-normal text-blue-gray-600">
+        <Typography variant="small" className="font-normal text-white">
           {description}
         </Typography>
       </CardBody>

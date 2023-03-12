@@ -40,7 +40,7 @@ export const ordersOverviewData = [
   },
   {
     icon: BanknotesIcon,
-    color: "text-blue-gray-900",
+    color: "text-white",
     title: "New order #9583120",
     description: "17 DEC",
   },

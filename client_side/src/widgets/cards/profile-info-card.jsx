@@ -15,17 +15,14 @@ export function ProfileInfoCard({ title, description, details, action }) {
         floated={false}
         className="mx-0 mt-0 mb-4 flex items-center justify-between gap-4"
       >
-        <Typography variant="h6" color="blue-gray">
+        <Typography variant="h6" color="white">
           {title}
         </Typography>
         {action}
       </CardHeader>
       <CardBody className="p-0">
         {description && (
-          <Typography
-            variant="small"
-            className="font-normal text-blue-gray-500"
-          >
+          <Typography variant="small" className="font-normal text-white">
             {description}
           </Typography>
         )}
@@ -38,7 +35,7 @@ export function ProfileInfoCard({ title, description, details, action }) {
               <li key={key} className="flex items-center gap-4">
                 <Typography
                   variant="small"
-                  color="blue-gray"
+                  color="white"
                   className="font-semibold capitalize"
                 >
                   {el}:
@@ -46,7 +43,7 @@ export function ProfileInfoCard({ title, description, details, action }) {
                 {typeof details[el] === "string" ? (
                   <Typography
                     variant="small"
-                    className="font-normal text-blue-gray-500"
+                    className="font-normal text-white"
                   >
                     {details[el]}
                   </Typography>

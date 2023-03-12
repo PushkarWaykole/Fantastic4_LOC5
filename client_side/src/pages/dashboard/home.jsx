@@ -41,7 +41,7 @@ export function Home() {
               className: "w-6 h-6 text-white",
             })}
             footer={
-              <Typography className="font-normal text-black">
+              <Typography className="font-normal text-white">
                 <strong className={footer.color}>{footer.value}</strong>
                 &nbsp;{footer.label}
               </Typography>
@@ -57,7 +57,7 @@ export function Home() {
             footer={
               <Typography
                 variant="small"
-                className="flex items-center font-normal text-blue-gray-600"
+                className="flex items-center font-normal text-[white]"
               >
                 <ClockIcon strokeWidth={2} className="h-4 w-4 text-inherit" />
                 &nbsp;{props.footer}
@@ -71,7 +71,7 @@ export function Home() {
           className="overflow-hidden xl:col-span-2"
           style={{
             background:
-              "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+              "linear-gradient(to bottom left,#309900 13%, #217a09, #145d0b, #0b4009, #082600)",
           }}
         >
           <CardHeader
@@ -81,15 +81,15 @@ export function Home() {
             className="m-0 flex items-center justify-between p-6"
           >
             <div>
-              <Typography variant="h6" color="blue-gray" className="mb-1">
+              <Typography variant="h6" color="white" className="mb-1">
                 Projects
               </Typography>
               <Typography
                 variant="small"
-                className="flex items-center gap-1 font-normal text-blue-gray-600"
+                className="flex items-center gap-1 font-normal text-white"
               >
-                <CheckIcon strokeWidth={3} className="h-4 w-4 text-blue-500" />
-                <strong>30 done</strong> this month
+                <CheckIcon strokeWidth={3} className="h-4 w-4 text-white" />
+                <strong>2781 Coupon Used</strong> this month
               </Typography>
             </div>
             <Menu placement="left-start">
@@ -113,32 +113,30 @@ export function Home() {
             className="overflow-x-scroll px-0 pt-0 pb-2"
             style={{
               background:
-                "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+                "linear-gradient(to bottom left,#309900, #217a09, #145d0b, #0b4009, #082600)",
             }}
           >
             <table className="w-full min-w-[640px] table-auto">
               <thead>
                 <tr>
-                  {["companies", "members", "budget", "completion"].map(
-                    (el) => (
-                      <th
-                        key={el}
-                        className="border-b border-blue-gray-50 py-3 px-6 text-left"
+                  {["companies", "user", "budget", "completion"].map((el) => (
+                    <th
+                      key={el}
+                      className="border-b border-blue-gray-50 py-3 px-6 text-left"
+                    >
+                      <Typography
+                        variant="small"
+                        className="text-[11px] font-medium uppercase text-white"
                       >
-                        <Typography
-                          variant="small"
-                          className="text-[11px] font-medium uppercase text-blue-gray-400"
-                        >
-                          {el}
-                        </Typography>
-                      </th>
-                    )
-                  )}
+                        {el}
+                      </Typography>
+                    </th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
                 {projectsTableData.map(
-                  ({ img, name, members, budget, completion }, key) => {
+                  ({ img, name, user, budget, completion }, key) => {
                     const className = `py-3 px-5 ${
                       key === projectsTableData.length - 1
                         ? ""
@@ -152,7 +150,7 @@ export function Home() {
                             <Avatar src={img} alt={name} size="sm" />
                             <Typography
                               variant="small"
-                              color="blue-gray"
+                              color="white"
                               className="font-bold"
                             >
                               {name}
@@ -160,7 +158,7 @@ export function Home() {
                           </div>
                         </td>
                         <td className={className}>
-                          {members.map(({ img, name }, key) => (
+                          {user.map(({ img, name }, key) => (
                             <Tooltip key={name} content={name}>
                               <Avatar
                                 src={img}
@@ -177,7 +175,7 @@ export function Home() {
                         <td className={className}>
                           <Typography
                             variant="small"
-                            className="text-xs font-medium text-blue-gray-600"
+                            className="text-xs font-medium text-white"
                           >
                             {budget}
                           </Typography>
@@ -186,7 +184,7 @@ export function Home() {
                           <div className="w-10/12">
                             <Typography
                               variant="small"
-                              className="mb-1 block text-xs font-medium text-blue-gray-600"
+                              className="mb-1 block text-xs font-medium text-white"
                             >
                               {completion}%
                             </Typography>
@@ -209,7 +207,7 @@ export function Home() {
         <Card
           style={{
             background:
-              "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+              "linear-gradient(to bottom left,#309900 30%, #217a09, #145d0b, #0b4009, #082600)",
           }}
         >
           <CardHeader
@@ -223,7 +221,7 @@ export function Home() {
             </Typography>
             <Typography
               variant="small"
-              className="flex items-center gap-1 font-normal text-blue-gray-600"
+              className="flex items-center gap-1 font-normal text-white"
             >
               <ArrowUpIcon
                 strokeWidth={3}
@@ -236,7 +234,7 @@ export function Home() {
             className="pt-0"
             style={{
               background:
-                "linear-gradient(to left bottom, #4eff00, #71ff40, #8bff60, #a2ff7b, #b5ff94)",
+                "linear-gradient(to bottom left,#309900 20%, #217a09, #145d0b, #0b4009, #082600)",
             }}
           >
             {ordersOverviewData.map(
@@ -264,7 +262,7 @@ export function Home() {
                     <Typography
                       as="span"
                       variant="small"
-                      className="text-xs font-medium text-blue-gray-500"
+                      className="text-xs font-medium text-white"
                     >
                       {description}
                     </Typography>

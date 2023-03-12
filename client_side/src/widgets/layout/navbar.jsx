@@ -27,7 +27,7 @@ export function Navbar({ brandName, routes, action }) {
           key={name}
           as="li"
           variant="small"
-          color="blue-gray"
+          color="white"
           className="capitalize"
         >
           <Link to={path} className="flex items-center gap-1 p-1 font-normal">
@@ -44,7 +44,7 @@ export function Navbar({ brandName, routes, action }) {
 
   return (
     <MTNavbar className="p-3">
-      <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
+      <div className="container mx-auto flex items-center justify-between text-white">
         <Link to="/dashboard/home">
           <Typography
             variant="small"
@@ -83,7 +83,7 @@ export function Navbar({ brandName, routes, action }) {
 }
 
 Navbar.defaultProps = {
-  brandName: "Material Tailwind React",
+  brandName: " Redemption Inc.",
   action: (
     <a
       href="https://www.creative-tim.com/product/material-tailwind-dashboard-react"

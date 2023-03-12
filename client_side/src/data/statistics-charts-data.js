@@ -86,7 +86,7 @@ export const statisticsChartsData = [
     chart: dailySalesChart,
   },
   {
-    color: "green",
+    color: "blue",
     title: "Completed Tasks",
     description: "Last Campaign Performance",
     footer: "just updated",
